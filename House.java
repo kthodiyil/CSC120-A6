@@ -4,6 +4,7 @@ public class House extends Building {
   private ArrayList<String> residents; // The <String> tells Java what kind of data we plan to store IN the ArrayList
   private boolean hasDiningRoom;
   
+  // INCLUDE COMMENTS
   public House(String name, String address, int nFloors, ArrayList<String> residents, boolean hasDiningRoom) {
     super(name, address, nFloors);
     this.residents = residents;
@@ -12,12 +13,7 @@ public class House extends Building {
   }
 
   public boolean hasDiningRoom() {
-    if(this.hasDiningRoom == true){
-      return true;
-    }
-    else{
-      return false;
-    }
+    return this.hasDiningRoom;
   }
 
   public int nResidents(){
@@ -25,15 +21,24 @@ public class House extends Building {
   }
 
   public void moveIn(String name){
-    this.residents.add(name);
+    if(!this.residents.contains(name)){
+      this.residents.add(name);
+    }
+    else{System.out.println("This person already lives in " + this.name);}
   }
 
   public String moveOut(String name){
-    int numRes = this.residents.size() - 1;
-    this.residents.remove(numRes);
-    return name;
+    if(this.residents.contains(name)){
+      this.residents.remove(name);
+      return name;
+    }
+    else{
+      String notRes = name + " does not live in this building";
+      return notRes;
+    }
+    
   }
-  public boolean isInArray(String name){
+  public boolean isResident(String name){
     return this.residents.contains(name);
   }
   
