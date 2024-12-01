@@ -17,7 +17,7 @@ public class Library extends Building{
       else{System.out.println(title + " is already in the collection.");}
       
     }
-
+    // return the title that we removed
     public String removeTitle(String title){
       if(collection.containsKey(title)){
         collection.remove(title);
@@ -39,25 +39,24 @@ public class Library extends Building{
       }
       else{System.out.println("This book has already been returned.");}
     }
-
+    // returns true if the title appears as a key in the Libary's collection, false otherwise
     public boolean containsTitle(String title){
       if(collection.containsKey(title)){
         return true;
       }
       else{throw new RuntimeException("This collection does not contain the given title.")}
-
+    }
+    // returns true if the title is currently available, false otherwise
     public boolean isAvailable(String title){
-      if(collection.getValue() == true){
+      if(collection.get(title) == true){
         return true;
       }
       else{return false;}
     }
-
+    // prints out the entire collection in an easy-to-read way (including checkout status)
     public void printCollection(){
-      for(Hashtable<String, Boolean> collection : entry){
-        String key = collection.getKey();
-        Boolean value = collection.getValue();
-        System.out.println(key + ":" + value);
+      for(String key : collection.keySet()){
+        System.out.println("Key: " + key + ", Value: " + collection.get(key));
       }
     }
     public static void main(String[] args) {
@@ -65,4 +64,3 @@ public class Library extends Building{
     }
   
   }
-}
