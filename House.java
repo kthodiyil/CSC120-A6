@@ -43,7 +43,10 @@ public class House extends Building {
   }
   
   public static void main(String[] args) {
-    new House();
+    ArrayList<String> residents = new ArrayList<>();
+    residents.add("Kavitha Thodiyil");
+    House house = new House("Talbot", "25 Prospect Street", 4, residents, false);
+    System.out.println(house);
   }
 
 }

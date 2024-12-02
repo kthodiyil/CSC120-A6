@@ -40,7 +40,14 @@ public class Cafe extends Building{
     }
     
     public static void main(String[] args) {
-        new Cafe();
+        Cafe cafe = new Cafe("Compass Cafe", "7 Elm Street", 1, 12, 2, 2, 1);
+        System.out.println(cafe);
+        cafe.sellCoffee(12, 3, 45);
+        System.out.println(cafe.nCoffeeOunces + " " + cafe.nSugarPackets + " " + cafe.nCreams);
+        cafe.sellCoffee(2, 8, 3);
+        System.out.println(cafe.nCoffeeOunces + " " + cafe.nSugarPackets + " " + cafe.nCreams);
+        cafe.restock(100, 100, 100, 100);
+        System.out.println(cafe.nCoffeeOunces + " " + cafe.nSugarPackets + " " + cafe.nCreams);
     }
     
 }

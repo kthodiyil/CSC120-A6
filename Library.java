@@ -44,7 +44,7 @@ public class Library extends Building{
       if(collection.containsKey(title)){
         return true;
       }
-      else{throw new RuntimeException("This collection does not contain the given title.")}
+      else{throw new RuntimeException("This collection does not contain the given title.");}
     }
     // returns true if the title is currently available, false otherwise
     public boolean isAvailable(String title){
@@ -60,7 +60,10 @@ public class Library extends Building{
       }
     }
     public static void main(String[] args) {
-      new Library();
+      Hashtable<String, Boolean> hashtable = new Hashtable<>();
+      hashtable.put("Alice in Wonderland", true);
+      Library lib = new Library("Neilson", "7 Neilson Drive", 5, hashtable);
+      System.out.println(lib);
     }
   
   }
