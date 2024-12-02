@@ -9,7 +9,7 @@ public class Library extends Building{
       this.collection = collection;
       System.out.println("You have built a library: 📖");
     }
-
+    // If the given title is not contained in the collection, the title is added to the hashmap, else a message indicating that the titie is already in the hashmap is produced.
     public void addTitle(String title){
       if(!collection.containsKey(title)){
         collection.put(title, true);
@@ -25,14 +25,14 @@ public class Library extends Building{
       }
       else{ throw new RuntimeException("You cannot remove this title because it is not in the collection.");}
     }
-
+    // Checks if the collection contains a given title. If it is contained, the value is changed to false to indicate that the book is being checked out.
     public void checkOut(String title){
       if(collection.contains(title)){
         collection.put(title, false); // assigns the value to false because the book is no longer available
       }
       else{System.out.println("This book cannot be checked out because it is not in the collection.");}
     }
-
+    // Checks if a book is in the collection and has a value of false and then changes the value to true. Else, the book has already been returned and a message is produced.
     public void returnBook(String title){
       if(collection.contains(title) && collection.get(title)== false){
         collection.put(title, true);
